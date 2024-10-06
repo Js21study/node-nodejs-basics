@@ -1,5 +1,13 @@
+import dotenv from 'dotenv';
+dotenv.config();
 const parseEnv = () => {
-    // Write your code here 
+  const envVars = process.env;
+  const rssVars = Object.entries(envVars)
+    .filter(([key]) => key.startsWith('RSS_'))
+    .map(([key, value]) => `${key}=${value}`)
+    .join('; ');
+
+  console.log(rssVars, 'result');
 };
 
 parseEnv();
